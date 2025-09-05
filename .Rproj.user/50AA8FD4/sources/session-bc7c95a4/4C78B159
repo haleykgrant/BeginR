@@ -1,26 +1,26 @@
 {
-    "id": "17901A0D",
-    "path": "~/Documents/BeginnerRTutorials/index.qmd",
-    "project_path": "index.qmd",
+    "id": "4C78B159",
+    "path": "~/Documents/BeginnerRTutorials/Sections/S1/RProjects.qmd",
+    "project_path": "Sections/S1/RProjects.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1757083274241.0,
+    "created": 1757101021498.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "4,41",
-        "scrollLine": "0"
+        "cursorPosition": "5,29",
+        "scrollLine": "4"
     },
     "folds": "",
-    "lastKnownWriteTime": 1757083752,
+    "lastKnownWriteTime": 1757101300,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1757083752889,
+    "last_content_update": 1757101300547,
     "read_only": false,
     "read_only_alternatives": []
 }

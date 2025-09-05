@@ -81,7 +81,7 @@
     "href": "Sections/S1/RProjects.html",
     "title": "3  R Projects",
     "section": "",
-    "text": "3.1 R Projects\nR projects make it easy to keep files relating to the same content organized. I recommend making a folder and an R project for this class. This will allow you to keep all of your data files, notes, and homowork code in one (organized) place on your computer.",
+    "text": "3.1 R Projects\nR projects make it easy to keep files relating to the same content organized. I recommend making a folder and an R project for this class. This will allow you to keep all of your data files, notes, and homework code in one (organized) place on your computer.",
     "crumbs": [
       "R Set Up",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>R Projects</span>"
@@ -92,7 +92,7 @@
     "href": "Sections/S1/RProjects.html#r-projects",
     "title": "3  R Projects",
     "section": "",
-    "text": "3.1.1 Guide to RStudio IDE and R Projects\nWatch this video for a description of the layout of the RStudio interface and a demonstration for how to create an R project on your computer.\n\n\n\n3.1.2 Making a class-specific folder and R Project\nI will be making a folder and project for this class where I will keep all of my notes and data sets. If you structure your folder the same way I do, all of my code should work seamlessly on your computer!\n\nCheck In\nHave you created a folder (directory) and an R project for this class on your computer?\n\n Yes! Not yet\n\n\nI also like to keep things organized into sub-folders. For my BIOST 2041 folder, I have the following sub-folders:\n\nData\nLabs\nNotes\nRecitation\n\nI keep all data files for the class in “Data” and then files with code and instructions in their corresponding assignment section.\nThat’s it! The next chapter will be about using data types, using functions, and downloading packages in R.",
+    "text": "3.1.1 Guide to RStudio IDE and R Projects\nBelow is a great video from RLadiesSydney. Watch the video for a description of the layout of the RStudio interface and a demonstration for how to create an R project on your computer.\n\n\n\n3.1.2 Making a New R Project\nMaking an R project is a great idea to keep files like data, code files, etc. together. I like to make a new R project for every new research project, class, outside project, etc. that I use R for.\nBy making a new project, you will help R find the files you need for your analyses and keep everything organized in one place. Go ahead and make an R project for this material on your own computer now!\nThat’s it! The next chapter will be about using data types, using functions, and downloading packages in R.",
     "crumbs": [
       "R Set Up",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>R Projects</span>"
