@@ -1,7 +1,6 @@
 project:
   type: book
   output-dir: docs
-
 book:
   title: "Beginner R Tutorials"
   author: "Haley Grant"

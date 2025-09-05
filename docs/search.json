@@ -515,5 +515,25 @@
       "Working with Data",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Data Visualization</span>"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Beginner R Tutorials",
+    "section": "",
+    "text": "Welcome\nThis book contains a collection of tutorials for beginner R programmers. The goal is to new R users familiar with basic R programming syntax, data import and manipulation, and some data summarization and visualization methods.\nThis book was created for the course BIOST 2041: Introduction to Statistical Methods at the University of Pittsburgh School of Public Health.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#working-through-the-examples-in-this-book",
+    "href": "index.html#working-through-the-examples-in-this-book",
+    "title": "Beginner R Tutorials",
+    "section": "Working Through the Examples in this Book",
+    "text": "Working Through the Examples in this Book\n\nRunning the code chunks in this tutorial\nIn the following chapters, I will introduce a handful of new concepts in R and will include example code to demonstrate how the code works. When you get to a code chunk (an example of a code chunk is shown below), you can edit the code in the chunk if necessary and run the code to see the output by either hitting the “Run Code” button or by placing your cursor in the code chunk you want to execute and typing command (⌘) + return (↩︎) (on mac) or Ctrl + Enter (on windows).\nSometimes certain code chunks will require output from previous code chunks. I have tried to indicate when this is the case, but if you ever get any errors, go back and make sure you haven’t skipped any sections.\n\n\nCode output\nIf a code chunk produces output, you will see it appear below the code chunk after you execute (run) the code in the chunk. If there are multiple lines of code that produce output, you will see the output appear in order below the code chunk if you hit the “Run Code” button. You can also execute each line separately using the keystrokes mentioned above.\n\n\nThe ‘Start over’ button\nEach code chunk has a  button in the upper right corner that allows you to reset the code in the chunk. If you make a mistake and want to start from scratch, hit this button!\n\n\nComments\nYou may notice some lines of code that start with the pound symbol, #, and show up in a different text color inside the code chunks. These are called comments. R doesn’t execute anything when it sees a comment. Comments are just notes to yourself or anyone else reading your code! It’s good practice to add comments to your code at each line to help you remember what the code was meant to do, or to help someone else who may be reading your code understand what the code is supposed to be doing.\n\n# this is an example of a comment!\n\n\n\n\n\n\n\nExercise:\n\n\n\nTry writing your own comment in the code chunk below!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nHint\n\n\n\n\n\nThink about what the line of code should start with.\nIf you hit “Run Code” you should see that nothing is executed.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Welcome"
+    ]
   }
 ]
