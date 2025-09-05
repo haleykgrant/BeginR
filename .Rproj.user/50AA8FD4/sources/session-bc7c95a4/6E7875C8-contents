@@ -1,0 +1,430 @@
+---
+title: "R Objects"
+author: "Haley Grant"
+engine: knitr
+filters: 
+  - webr
+  - naquiz
+webr:
+  packages: ['tidyverse']
+  autoload-packages: false
+---
+
+
+## R Objects
+
+One very basic function of R is that it can be used essentially as a calculator. For example, if we want to check what `2 + 3` is, we can run the code:
+
+*Note: the spaces I included in this line of code aren't necessary, but I like to add white space into R code for readability. White spaces generally only matter in R if they are part of character strigns (which we'll get to later)*
+
+```{webr-r}
+# add 2 + 3
+2 + 3
+```
+
+When you run the code above, it should print out the number 5 (the \[1\] on the left just indicates that this is the first line of output, which can be helpful later if R code produces more than one line of output). You can try changing the numbers in this code chunk to see how this changes the output.
+
+That's great, but maybe I don't want to have to re-type that line of code every time I want to use those numbers. This is where R objects come in. For example, maybe I have a variable that I want to call `x` that will hold the number 2 and a different variable called `y` that will hold the number 3. To do this, run the following chunk of code:
+
+```{webr-r}
+# assign the value 2 to x
+x = 2
+# assign the value 3 to y
+y = 3
+
+```
+
+::: {.callout-note collapse="true"}
+## Note: `=` vs `<-`
+
+Sometimes you might see the operator `<-` (for example `x <- 2`) instead of the equals sign (`=`). This is an artifact of earlier versions of R when you had to use `<-` to assign values to objects; both work now and `=` is shorter so I used it here 🙂
+:::
+
+Note that when you run this code, nothing seems to happen! Or at least, that's what it looks like. If we were running this in RStudio, we would see in the upper right quadrant under the "Environment" tab that we now have two objects, `x` and `y`, that have the values 2 and 3 respectively. To see this here, we can print out the values:
+
+```{webr-r}
+# print x
+x 
+```
+
+::: {.callout-important collapse="true"}
+## If you get an error
+
+If you get an error that looks like this
+
+[Error: object 'x' not found]{style="color: #db4133; font-family: 'Monaco'; font-weight: 500;"}
+
+make sure you hit "Run Code" in the previous code chunk where we assigned `x` and `y` values before trying to print the value of `x`. This type of error means that you are trying to use an object that hasn't been defined. Just because you *wrote* a line of code (say, in an R Markdown file), doesn't mean you've *executed* that line of code.
+:::
+
+Great! The object `x` is now a placeholder for the number 2.
+
+::: {.callout-note icon="false" appearance="simple"}
+### Exercise:
+
+The goal of the following line of code is to print the value of the object `y`, but it has an error. **Can you find the mistake in the code? See if you can figure out how to fix it so the code returns the correct answer (the value of `y` is 3).**
+
+```{webr-r}
+# print y 
+Y
+
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+The problem with the code above is that I used a capital `Y` instead of lowercase `y`. R is case-sensitive, so it won't assume you mean `y` if you type `Y`. This is something to be aware of in the future!
+
+```{webr-r}
+# print y 
+y
+
+```
+:::
+:::
+
+Cool! Now that `x` and `y` are placeholders for the numbers 2 and 3, we can use them just like numbers. For example, we can add them together, multiply them, divide, subtract, etc. If we want to save the value of `x + y` for later use, we can do that too! Below I've shown some examples of calculations you can do using these two variables.
+
+### Addition, subtraction, multiplication, division
+
+We can do simple arithmetic like adding, subtracting, multiplying, and dividing, using the symbols `+`, `-`, `*`, and `/`, respectively.
+
+::: {.callout-note icon="false" appearance="simple"}
+### Exercise:
+
+I've shown addition and multiplication below, see if you can do subtraction and division!
+:::
+
+```{webr-r}
+# print x + y
+x + y
+```
+
+```{webr-r}
+# print x times y
+x * y
+```
+
+### Powers
+
+We can take powers using the `^` operator:
+
+```{webr-r}
+# print x squared
+x^2
+```
+
+### Logarithm/Exponent
+
+To take the natural (base e) logarithm of a numeric object we can use the `log()` function. The inverse of this function is `exp()`, which calculates `e^x` :
+
+```{webr-r}
+# print the log (base e) of x 
+log(x)
+
+# print the exponentiated value of x (e^x)
+exp(x)
+```
+
+### Saving a new variable z
+
+```{webr-r}
+# save x + y as z
+z = x + y
+
+# print the value of z
+z
+
+```
+
+## Types of Data
+
+In the example above, we were using numeric variables. However, there are many different types of data in R. Some of the main types of data we will use are
+
+-   **numeric**: numbers
+-   **character**: character strings/words
+-   **factor**: categorical variables that store data in levels
+-   **logical**: binary TRUE/FALSE
+-   **NA**: stand-in for missing values
+
+If you aren't sure what type of data an R object is, you can use the following code:
+
+::: {style="text-align: center;"}
+[`class(name_of_object))`]{style="font-family: 'Monaco';"}
+:::
+
+where you would replace `name_of_object` with the name of the R object that you want to check the class (data type) of.
+
+### Numeric Data
+
+```{webr-r}
+# save x_numeric object with the value 5
+x_numeric = 5
+
+# print value
+x_numeric
+
+# print out the type of variable
+class(x_numeric)
+```
+
+This is a number so we can use the same types of functions as we used above on the object `x_numeric` (adding, subtracting, etc.).
+
+### Character Data
+
+```{webr-r}
+# save x_character object with the value "5"
+x_character = "5"
+
+# print value
+x_character
+
+# print out the type of variable
+class(x_character)
+```
+
+This is a character. Even though it looks like a number, the quotation marks tell R that we don't want to treat this as the number 5. For example, maybe this is and identifier for hospital number 5 in a study. In this case, we probably don't want to do typical calculations as if this was the number 5.
+
+For example, see what happens when you try to multiply `x_character` by 2.
+
+```{webr-r}
+# try multiplying x_character by 2
+x_character * 2
+```
+
+#### Error messages
+
+Oh no! You should see the following error message:
+
+::: {style="text-align: center;"}
+[Error: non-numeric argument to binary operator]{style="color: #db4133; font-family: 'Monaco'; font-weight: 500;"}
+:::
+
+This is R's way of telling you that you're trying to apply a function that requires a number to an object that isn't a number. R gives helpful error messages like this when you try to run code that doesn't work. Sometimes the language R uses is hard to understand, but you can always ask me or a TA what the error means, or search the error on Google!
+
+::: {.callout-note icon="false" appearance="simple"}
+#### Exercise:
+
+If you change `x_character` to `x_numeric` in the code above, you should see it works just fine! Try it out yourself!
+:::
+
+### Vectors
+
+We don't have to save values in R individually. We can also save a bunch of values (numbers, characters, factors, etc.) together in something called a **vector**.
+
+We can make this type of R object using the `c()` function (this stands for "concatenate") to put a bunch of values together in a vector, separated by a comma. The values within a vector can be any type (numeric, character, logical, factor, etc.), but they must all be the **same type**, i.e. all numeric, all character, etc. (except for missing values).
+
+```{webr-r}
+# make a vector with the values 1, 2, 3, 4, 5, 2, 4
+x_vector = c(1, 2, 3, 4, 5, 2, 4)
+# print the vector to take a look
+x_vector
+```
+
+We can do lots of fun stuff in R with vectors. For example, we can multiply every entry of a numeric vector by 2, take the mean, sum, or standard deviation of a numeric vector, show the unique entries of the vector, and much more!
+
+#### Multiply by 2
+
+```{webr-r}
+# multiply vector entries by 2
+x_vector * 2
+```
+
+#### Take the mean
+
+```{webr-r}
+# take the mean of the vector values
+mean(x_vector)
+```
+
+#### Take the sum
+
+```{webr-r}
+# take the sum of the vector values
+sum(x_vector)
+```
+
+#### Take the standard deviation
+
+```{webr-r}
+# take the standard deviation of the vector values
+sd(x_vector)
+```
+
+#### Show the unique values
+
+```{webr-r}
+# show the unique values contained in the vector
+unique(x_vector)
+```
+
+#### Print the length of the vector
+
+```{webr-r}
+# show the length (number of entries) of the vector
+length(x_vector)
+
+```
+
+::: {.callout-note icon="false" appearance="simple"}
+#### Exercise:
+
+The goal of the following line of code is to find and print the maximum value of the vector `x_vector`, but it has an error. **Can you find the mistake in the code? See if you can figure out how to fix it so the code returns the correct answer (the maximum value in the vector is 5).**
+
+```{webr-r}
+# show the maximum value in the vector named x_vector
+max("x_vector")
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+The problem with the code above is that I accidentally included the name of the vector object (`x_vector`) in quotation marks (`"x_vector"`). If you include the name of an object in quotation marks, R will just think it's a character string and not the name of a saved object in the directory. If you remove the quotation marks, the code should work as expected!
+
+```{webr-r}
+# show the maximum value in the vector named x_vector
+max(x_vector)
+
+```
+:::
+:::
+
+{{< pagebreak >}}
+
+### Factor Data
+
+Factor variables are **categorical variables** that can either be numeric or character strings. Sometimes we get data that are coded with numbers even though the underlying variable is categorical. For example, we often code No/Yes variables as 0/1. Or maybe we have three levels of health insurance status: public, private, and uninsured. We may label these categories as 1, 2, and 3, but these numbers are just used for convenience, not because "private insurance" has anything to do with the number 2.
+
+In these cases, it can be helpful to convert variables to factors. Turning the variable into a factor means R will treat the variable as categorical rather than as a number. We also have the option to choose an **order** for the variable and we can give the variables nicer, more readable **labels**, which can both come in handy when making plots and tables from the data. We can accomplish these two tasks using the `levels` and `labels` arguments, respectively.
+
+```{webr-r}
+# save vector object as a factor variable with the levels from the likert scale
+x_factor = factor(x = x_vector,
+                  levels = c(1, 2, 3, 4, 5),
+                  labels = c("Strongly Agree", "Agree","Neutral","Disagree","Strongly Disagree"))
+
+# print value
+x_factor
+
+# print out the type of variable
+class(x_factor)
+
+```
+
+Here we can see that `x_factor` is a vector of factor variables. Now instead of showing up as numbers 1 through 5, we see the labels from the Likert scale. Our original vector was `1, 2, 3, 4, 5, 2, 4` which correspond to: `Strongly Agree, Agree, Neutral, Disagree, Strongly Disagree, Agree, Disagree`. This is the order that is showing up in `x_factor`. We can also see all possible levels printed when we print our vector of factor variables.
+
+### Logical Data
+
+R has another type of data called "logical" values. These are binary `TRUE`/`FALSE` (can also abbreviate with `T`/`F`) that let you know if a statement is true or false. This can be really useful when we want to filter data. For example, if we want to filter data to everyone over the age of 50, we can use logical variables to check if the age variable is greater than 50.
+
+In the example below we'll make a new variable to tell us if `x_numeric` from above is equal to the number 5.
+
+```{webr-r}
+# save x_logical as a TRUE/FALSE statement
+# the `==` operator is R's way of saying "is the thing on the left equal to the thing on the right?"
+x_logical = (x_numeric == 5)
+
+# print value 
+x_logical
+
+# show variable type
+class(x_logical)
+
+```
+
+::: {.callout-note icon="false" appearance="simple"}
+#### Exercise:
+
+Try changing the value in the code above to check if `x_numeric` is equal to the number 4 to see how the value would change.
+:::
+
+::: {.callout-warning icon="false"}
+#### Note: White spaces and case in character objects
+
+Recall that I mentioned above that adding extra white spaces in R generally doesn't impact your code (but can help with readability). One instance where white spaces do matter is inside characters. Run the code below to see an example of this:
+
+```{webr-r}
+# check if "5" (without space) is equal to " 5" (with a space)
+"5" == " 5"
+```
+
+Notice here that the statement is false, these two characters are not equal (because one has an extra space).
+
+**R is also case-sensitive:**
+
+```{webr-r}
+# example of R being case-sensitive
+"five" == "Five"
+
+```
+:::
+
+::: {.callout-note collapse="true"}
+#### Other Inequalities/Operators
+
+We saw above that the `==` operator is R's way of checking if an object is equal to some value. There some other useful operators such as:
+
+-   `>`: "greater than"
+-   `>=`: "greater than or equal to"
+-   `<`: "less than"
+-   `<=`: "less than or equal to"
+-   `%in%`: "is an element of" (this will be helpful when we get to vectors later)
+
+Go ahead and play around with the code below to try different operators:
+
+```{webr-r}
+# try different operators here:
+x_numeric <= 5
+```
+:::
+
+### Missing Values
+
+R has a special way of denoting missing values. In R, these show up as `NA` values. For example, if you have a data set with 100 individuals' height, weight, and age, if you weren't able to get the values measured for some of the individuals, those values should show up as `NA` values to indicate that they are missing.
+
+**Note:** this is different from `"NA"` the character. R will change the text color of `NA` when you type it in your code to show that this is a special kind of variable.
+
+```{webr-r}
+# save x_missing as NA value
+x_missing = NA
+# print value 
+x_missing
+```
+
+::: {.callout-note icon="false" appearance="simple"}
+#### Exercise:
+
+Try multiplying the `x_missing` variable by 2 and see what happens.
+
+```{webr-r}
+# multiply x_missing by 2
+
+
+```
+
+Generally any kind of functions applied to missing values return another `NA` value unless the function has a special way of handling missing values.
+:::
+
+#### The `is.na()` function
+
+There is a special function in R that can help you check if a value is a missing value. This function is `is.na()`. To see how it works, try running the code below:
+
+```{webr-r}
+# check if the next few things are NA values
+# x_missing
+is.na(x_missing)
+
+# the character string "NA" 
+is.na("NA")
+
+# x_numeric
+is.na(x_numeric)
+
+```
+
+
+
+
+
+
+

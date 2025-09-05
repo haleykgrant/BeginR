@@ -1,0 +1,9 @@
+# Outline {.unnumbered}
+
+
+In this section, you will learn about working with objects in R. In particular, this section will cover...
+
+-   [R objects](Objects.qmd)
+-   [Data types in R](Objects.qmd)
+-   [Functions in R](Functions.qmd)
+-   [Installing and using R packages](Packages.qmd)

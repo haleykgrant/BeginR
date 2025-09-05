@@ -1,0 +1,192 @@
+---
+title: "Understanding File Structures"
+author: "Haley Grant"
+engine: knitr
+filters: 
+  - webr
+  - naquiz
+webr:
+  packages: ['tidyverse', 'readxl','skimr']
+  autoload-packages: false
+  cell-options:
+    editor-font-scale: 0.85
+---
+
+```{webr-r}
+#| context: setup
+
+dir.create("./Data")
+
+url.csv <- "https://haleykgrant.github.io/tutorial_data/data/cdc.samp.csv"
+download.file(url.csv, "./Data/cdc_samp.csv")
+
+url.xlsx <- "https://haleykgrant.github.io/tutorial_data/data/dds.xlsx"
+download.file(url.xlsx, "./Data/dds.xlsx")
+
+url.rda <- "https://haleykgrant.github.io/tutorial_data/data/census.rda"
+download.file(url.rda, "./Data/census.rda")
+
+
+```
+
+
+## File Structure
+
+Before we get to data import, we need to go over a brief overview of computer file structures and how R will look for data files on your computer.
+
+### Files saved locally on your computer
+
+When you are working in R on your local computer and you want to import a data file into your R session for an analysis, you will need to tell R where it can find the data file. This is why I suggested creating a 'Data' folder in your class folder. If you save all of the data files for this class in that folder, you can always use the same general syntax for telling R where your file is.
+
+For this tutorial, we are working on the web, so R doesn't have access to the local files on your device. I have included all of the data files we will be using in this tutorial on a webpage that we can access online. You may need to change this code slightly to when running code for your assignments in this class to work with your computer's file structure.
+
+### Checking your working directory
+
+One good idea when you start working on a new analysis is to make sure you know where within your computer's file structure you are working so you can figure out how to access various files.
+
+We can use the function `getwd()` to have R print out the path to the directory (folder) we are currently working in.
+
+Try running the code in this block:
+
+```{webr-r}
+# check your current working directory
+# there shouldn't be anything between the two parentheses here
+getwd()
+
+```
+
+You should see the output is:
+
+::: {style="text-align: center;"}
+[\left"/home/web_user\right"]{style="font-weight: 500; font-family : Menlo"}
+:::
+
+This is because we are working in R on the web. This is telling us that we are in a sub-directory of the "home" directory called "web_user". That is, "web_user" is a directory (folder) inside the larger directory (folder) called "home". You read file paths from left to right.
+
+::: {style="color: purple;"}
+*Try running this in your Console in RStudio on your computer, and you should see a file path that corresponds to the file structure on your computer.*
+:::
+
+### File paths
+
+File paths are a way of specifying the location of a file within a computer's file system. There are two kinds of file paths, absolute paths and relative paths. Both can be useful in different situations.
+
+-   **Absolute file paths** are file paths that start at the root node of your computer (often starting with something like "C:" in Windows and "/Users/" in Unix-like operating systems like macOS). Absolute paths can get fairly long if files are contained within many levels of sub-directories.
+
+-   **Relative file paths** are paths that start at the current working directory, and are therefore often shorter than absolute paths.
+
+The function we used above, `getwd()`, prints absolute paths, so we are currently working in the "web_user" sub-directory of the root directory called "home". The image below is a visual representation of the file structure.
+
+![](file_structure){width="80%"}
+
+### List files in working directory
+
+To check the files that exist in our current directory, we can use the function `list.files()` to print a list of all the files that are stored in the directory where we are currently working. If we just want to print the files in our working directory, we can run the function without giving it a file path and just leave the inside of the parentheses blank (this will assume you want to list the files in your current directory). We could also input a file path to the function.
+
+Try running the code in this block:
+
+```{webr-r}
+# print files in working directory
+list.files(path = "/home/web_user")
+```
+
+::: {.callout-note icon="false" appearance="simple"}
+#### Exercise:
+
+Try running the line of code above with but remove everything from inside the set of parentheses. Do you notice a difference?
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+There shouldn't be any difference since we used the absolute path to the current working directory!
+
+```{webr-r}
+# print files in working directory
+list.files()
+```
+:::
+:::
+
+The output should look something like this:
+
+::: {style="text-align: center;"}
+[\[1\] "Data" "Rplots.pdf"]{style="font-family: 'Monaco'; font-weight: 500; "}
+:::
+
+This tells us that there are 2 objects that we have access to in this directory:
+
+1. A folder called "Data"
+    -   One clue that it's a folder instead of a file is that it doesn't have a file extension (like ".pdf") on the end
+    
+2. A file called "Rplots.pdf"
+    -   We won't be working with this file
+
+
+If we want to see the files contained within the sub-folder "Data", we can add this to the end of our absolute file path within the `path` argument:
+
+```{webr-r}
+# print files in data sub-directory
+list.files(path = "/home/web_user/Data")
+
+```
+
+::: {.callout-note icon="false" collapse="true"}
+## Equivalently, with Relative Path
+
+This code will give us the same output as above:
+
+```{webr-r}
+# print files in data sub-directory
+list.files(path = "Data")
+
+```
+:::
+
+Alternatively, we could add an extra argument to the original code that allows us to print files within subdirectories recursively. This argument tells R to print the contents of any subfolders contained within our directory (stopping when there are no further nested folders).
+
+```{webr-r}
+# print files in data sub-directory
+list.files(path = "/home/web_user/", recursive = T)
+
+```
+
+All of these tell us that within the sub-folder called "Data", we have three files:
+
+-   a file called "cdc_samp.csv"
+-   a file called "census.rda"
+-   a file called "dds.xlsx"
+
+These are the data files that we will be working with in this tutorial.
+
+## Types of Files
+
+The main types of files that we will work with in this class are:
+
+```{=html}
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+```
+| File Type    | Description                                                                                                                                | File Extension |
+|----------------|-----------------------------------------|----------------|
+| CSV files    | This stands for "comma separated value". These are files that have rows with entries separated by commas to indicate the different columns | .csv           |
+| Excel files  | Files in Excel workbook/sheet format                                                                                                       | .xls or .xlsx  |
+| R data files | Files with saved R objects                                                                                                                 | .RData or .rda |
+
+
+The three files we will use today have the following names:
+
+-   "cdc_samp.csv" : a csv file with demographic data from the CDC
+-   "dds.xlsx" : an Excel file with data from the Department of Disability Services in California
+-   "census.rda": an R data file with data from the US Census Bureau
