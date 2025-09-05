@@ -1,0 +1,20 @@
+---
+title: "Installing RStudio"
+author: "Haley Grant"
+engine: knitr
+webr:
+  packages: ['tidyverse']
+  show-startup-message: true
+---
+
+## Install RStudio
+
+### How to install RStudio
+
+RStudio is an Integrated Development Environment (IDE) for R. What does that mean? Well, if you think of R as a language, which it is, you can think of RStudio as a program that helps you write and work in the language. RStudio makes programming in R much easier and I suggest that you use it!
+
+{{< video https://vimeo.com/203516968 >}}
+
+If you need to download RStudio, head over to [the RStudio website](www.rstudio.com/download) to download RStudio. There are also some helpful tutorials on this website!
+
+If you've already done this, we'll move to the next step!
