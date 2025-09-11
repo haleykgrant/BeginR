@@ -61,7 +61,7 @@ There are lots of different plots that `ggplot2` can make, each with a different
 -   `geom_point()`: makes a scatterplot
 -   `geom_qq()`: makes a quantile-quantile (QQ) plot
 
-Let's see some examples! We will use the `census.rda` data from [Tutorial 3](https://haleykgrant.github.io/BIOST2041/posts/Tutorial-3/Tutorial3.html). I have already loaded the data for you. Reminder: the data frame is saved under the name `census`. Here's a reminder of what the data look like:
+Let's see some examples! We will use the `census.rda` data from [Chapter 7](DataImport.qmd). I have already loaded the data for you. Reminder: the data frame is saved under the name `census`. Here's a reminder of what the data look like:
 
 ```{webr-r}
 # show first few rows of census data

@@ -29,7 +29,7 @@ load("data/census.rda")
 
 # Introduction
 
-In this tutorial, we will be covering how to summarize data using R. This can include:
+In this chapter, we will be covering how to summarize data using R. This can include:
 
 -   single variable summaries
     -   counts,
@@ -43,7 +43,7 @@ In this tutorial, we will be covering how to summarize data using R. This can in
     -   measures of spread by group,
     -   correlation
 
-We will once again be using the `census` data from Tutorials 3 and 5 to demonstrate how to create numerical summaries using R. I've already read the data in for you; feel free to run the code below to remind yourself of the variables in the data set that we will be working with.
+We will once again be using the `census` data from to demonstrate how to create numerical summaries using R. I've already read the data in for you; feel free to run the code below to remind yourself of the variables in the data set that we will be working with.
 
 ```{webr-r}
 # print names of columns in census data
@@ -71,11 +71,11 @@ We'll start with single variable summaries, that is, getting summary metrics for
 
 ## Quantitative variables
 
-In Tutorial 5, we made a histogram and box plot to display the variable `total_personal_income`. This is a quantitative variable, so the summary metrics that we can use are measures of center such as mean or median and measures of spread such as standard deviation, variance, and interquartile range (IQR).
+In [Chapter 10](DataViz.qmd), we made a histogram and box plot to display the variable `total_personal_income`. This is a quantitative variable, so the summary metrics that we can use are measures of center such as mean or median and measures of spread such as standard deviation, variance, and interquartile range (IQR).
 
 ### The `summarise()` function
 
-We can calculate these summary statistics within the data set, we can utilize the `summarise()` function from the `dplyr` package (part of the `tidyverse`). This function is similar to the `mutate()` function that we used in Tutorial 4 in that it can create new columns. However, instead of just adding new columns to an existing data set, the `summarise()` function condenses the data and only shows the summarized information. To see this, let's try taking the mean of the variable `total_personal_income` both with the `mutate()` function and with the `summarise()` function.
+We can calculate these summary statistics within the data set, we can utilize the `summarise()` function from the `dplyr` package (part of the `tidyverse`). This function is similar to the `mutate()` function that we used in [Chapter 4](../S2/Functions.qmd) in that it can create new columns. However, instead of just adding new columns to an existing data set, the `summarise()` function condenses the data and only shows the summarized information. To see this, let's try taking the mean of the variable `total_personal_income` both with the `mutate()` function and with the `summarise()` function.
 
 Try running the following two code chunks to see the difference between `mutate()` and `summarise()`
 
@@ -188,7 +188,7 @@ census %>%
 
 ## Qualitative variables
 
-In Tutorial 5, we made a bar plot showing the breakdown of marital status in the census data. We can also compute summary statistics for this variable. For categorical variables like this, there aren't as many summary statistics we can compute; we generally stick to counts and proportions.
+In [Chatper 10](DataViz.qmd), we made a bar plot showing the breakdown of marital status in the census data. We can also compute summary statistics for this variable. For categorical variables like this, there aren't as many summary statistics we can compute; we generally stick to counts and proportions.
 
 ## The `xtabs()` function
 

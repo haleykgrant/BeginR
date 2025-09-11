@@ -29,8 +29,9 @@ book:
       - Sections/S3/Files.qmd
       - Sections/S3/DataImport.qmd
       - Sections/S3/Dataframes.qmd
-      - Sections/S3/Summaries.qmd
       - Sections/S3/DataViz.qmd
+      - Sections/S3/Summaries.qmd
+     
       
 
 
